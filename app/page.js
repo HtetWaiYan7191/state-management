@@ -1,6 +1,10 @@
+import Login from "./components/Login"
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <Login/>
+    </>
   )
 }
 
