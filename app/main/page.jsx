@@ -7,7 +7,6 @@ import { logOut } from "@/redux/features/authSlice";
 import Hero from "../components/Hero";
 import Navigation from "../components/Navigation";
 const Main = () => {
-  // const currentUser = useSelector((state) => state.authReducer.value.username);
   const [currentUser, setCurrentUser] = useState('');
 
   const dispatch = useDispatch();

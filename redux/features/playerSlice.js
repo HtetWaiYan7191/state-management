@@ -37,14 +37,12 @@ export const player = createSlice({
             const teamIdToDelete = action.payload;
             state.team = state.team.filter(team => team.id !== teamIdToDelete);
             localStorage.setItem('teams', JSON.stringify(state.team));
-
         }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchPlayers.fulfilled, (state, action) => {
             state.isLoading = true;
             state.value = action.payload;
-            state.team = JSON.parse(localStorage.getItem('teams'))
           });
     }
 })
