@@ -1,26 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const userData = JSON.parse(localStorage.getItem('userData'));
 const initialState = {
-    value: {
-        isAuth: false,
-        username: '',
-    }
+    value: userData || {}
 }
+
 
 export const auth = createSlice({
     name: 'auth',
     initialState,
     reducers: {
         logOut: () =>{
+            localStorage.removeItem('userData');
             return initialState;
+
         },
         logIn: (_, action) => {
-            return {
-                value: {
-                    isAuth: true,
-                    username: action.payload
-                }
+            const userData = {
+                isAuth: true,
+                username: action.payload
             }
+            localStorage.setItem('userData', JSON.stringify(userData));
+            return {
+                value: userData
+            };
+            
         }
     }
 })

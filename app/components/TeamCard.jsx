@@ -19,7 +19,7 @@ const TeamCard = ({team}) => {
         <li className='font-semibold text-gray-300'>Division: <span className=' text-gray-500 capitalize'>{team.division}</span></li>
         <li className='font-semibold text-gray-300'>Players: <span className=' text-gray-500'>{team.players.length}</span></li>
       </ul>
-      <button onClick={() => handleClick(team.id)}>Delete</button>
+      <button onClick={() => handleClick(team.id)} className='px-4 py-2 bg-slate-800 text-white font-semibold rounded-md hover:bg-slate-600'>Delete</button>
     </div>
   </div>
   )

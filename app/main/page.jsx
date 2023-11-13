@@ -8,6 +8,7 @@ import Hero from "../components/Hero";
 import Navigation from "../components/Navigation";
 const Main = () => {
   const currentUser = useSelector((state) => state.authReducer.value.username);
+
   const dispatch = useDispatch();
   const router = useRouter();
 

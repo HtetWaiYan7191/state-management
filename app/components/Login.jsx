@@ -23,7 +23,7 @@ const Login = () => {
     <div className='login-container flex justify-center items-center h-[100vh]'>
         <form action="" onSubmit={handleSubmit} className='border border-2 p-5 rounded-md'>
             <h2 className='text-center my-2 font-semibold text-lg'>LOGIN</h2>
-            <input type="text" onChange={handleChange} value={name} placeholder="Enter Name" className="input input-sm lg:input-md input-bordered  w-full max-w-xs my-2" />
+            <input type="text" onChange={handleChange} value={name} placeholder="Enter Name" className="input input-sm lg:input-md input-bordered  w-full max-w-xs my-2" required />
                 <Button title="LogIn"/>  
         </form>
     </div>
