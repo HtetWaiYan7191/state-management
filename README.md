@@ -58,7 +58,7 @@ This project utilizes Next.js, React, and Redux Toolkit to tackle state manageme
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://frontendtest13.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
