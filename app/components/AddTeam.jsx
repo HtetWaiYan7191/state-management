@@ -1,19 +1,24 @@
 "use client";
+import { addTeams } from "@/redux/features/playerSlice";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from 'uuid';
 
-const AddTeam = () => {
-  const players = useSelector((state) => state.playerReducer.value);
+
+const AddTeam = ({players}) => {
+    const dispatch = useDispatch();
   const [team, setTeam] = useState({
+    id: '',
     name: "",
-    region: "",
-    country: "",
+    division: "",
+    city: "",
     players: [], // Change to an empty array
   });
 
   const handleChange = (e, name) => {
     setTeam((prev) => ({
       ...prev,
+      id: uuidv4(),
       [name]: e.target.value,
     }));
   };
@@ -28,8 +33,8 @@ const AddTeam = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("handle submit is working");
-    console.log(team);
+    dispatch(addTeams(team))
+    closeModal();
   };
 
   const closeModal = () => {
@@ -59,20 +64,20 @@ const AddTeam = () => {
 
             <input
               type="text"
-              name="region"
+              name="division"
               placeholder=" Region"
               required
               className="input input-sm lg:input-md input-bordered w-full max-w-xs my-2"
-              onChange={(e) => handleChange(e, "region")}
+              onChange={(e) => handleChange(e, "division")}
             />
 
             <input
               type="text"
-              name="country"
-              placeholder=" Country"
+              name="city"
+              placeholder=" City"
               required
               className="input input-sm lg:input-md input-bordered w-full max-w-xs my-2"
-              onChange={(e) => handleChange(e, "country")}
+              onChange={(e) => handleChange(e, "city")}
             />
 
             <select
