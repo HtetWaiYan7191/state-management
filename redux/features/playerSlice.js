@@ -18,18 +18,30 @@ export const player = createSlice({
         addPlayers: (state, action) => {
             state.value = action.payload
         },
-        addTeams: (_, action) => {
-            const teams =  state.player.map(player => player.team );
-            state.team = teams;
+        addTeams: (state, action) => {
+            state.team.push(action.payload)
+        },
+        deleteTeam: (state, action) => {
+            const teamIdToDelete = action.payload;
+            state.team = state.team.filter(team => team.id !== teamIdToDelete);
         }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchPlayers.fulfilled, (state, action) => {
             state.isLoading = true;
             state.value = action.payload;
-        })
+        
+            // const uniqueTeams = new Set();
+        
+            // state.value.forEach((player) => {
+            //   const teamString = JSON.stringify(player.team);
+            //   uniqueTeams.add(teamString);
+            // });
+        
+            // state.team = Array.from(uniqueTeams, (teamString) => JSON.parse(teamString));
+          });
     }
 })
 
-export const {addPlayers, addTeams} = player.actions;
+export const {addPlayers, addTeams, deleteTeam} = player.actions;
 export default player.reducer
