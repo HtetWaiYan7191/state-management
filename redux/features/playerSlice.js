@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
 
-const storedTeams = JSON.parse(localStorage.getItem('teams'));
 const initialState = {
     value: [],
-    team: storedTeams || [], 
+    team: [], 
     isLoading: false
 }
 export const fetchPlayers = createAsyncThunk('hero/players', async () => {
@@ -45,6 +44,7 @@ export const player = createSlice({
         builder.addCase(fetchPlayers.fulfilled, (state, action) => {
             state.isLoading = true;
             state.value = action.payload;
+            state.team = JSON.parse(localStorage.getItem('teams'))
           });
     }
 })

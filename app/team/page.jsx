@@ -11,6 +11,7 @@ const Team = () => {
   const teams = useSelector((state) => state.playerReducer.team);
   const reverseTeams = [...teams].reverse();
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(fetchPlayers());
   }, [dispatch]);
